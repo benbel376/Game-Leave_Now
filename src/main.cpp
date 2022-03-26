@@ -97,22 +97,9 @@ int main( int argc, char* args[] )
 				if( e.type == SDL_QUIT ){quit = true;}
 				else if( e.type == SDL_KEYDOWN )
 				{
-					//Select surfaces based on key press
-					switch( e.key.keysym.sym )
-					{
-						case SDLK_LEFT:
-						//handling function
-						break;
-						case SDLK_RIGHT:
-						//handling function
-						break;
-						case SDLK_UP:
-						//handling function
-						break;
-						case SDLK_DOWN:
-						//handling function
-						break;
-					}
+					movePlayer(e, &playerX, &playerY);
+					liX = playerX+10;
+					liY = playerY + offset;
 				}
 			}
 			//Clear screen
