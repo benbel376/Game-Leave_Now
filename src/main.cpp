@@ -85,6 +85,7 @@ int main( int argc, char* args[] )
 		float playerX = 160;
 		float playerY = 160;
 		float playerA = 0.0;
+		int playerSize = 5;
 		//While application is running: main game loop.
 		while( !quit )
 		{
