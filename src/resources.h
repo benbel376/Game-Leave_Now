@@ -9,7 +9,7 @@
 #include <cmath>
 #include <iostream>
 #include "map.cpp"
-
+#include "player.cpp"
 
 //The window we'll be rendering to
 SDL_Window* gWindow = NULL;
@@ -36,8 +36,8 @@ bool init();
 void close();
 
 //it renders the map out of an array.
-void renderMap(int * mapArray, int mY, int mX);
+void renderMap(int * mapArray, int mX, int mY, int blockSize, SDL_Renderer* renderer);
 
-
-
+//it renders the player on the screen
+void renderPlayer(int playerPosX, int playerPosY, int playerSize, int offset, int liX, int liY, SDL_Renderer* renderer );
 #endif

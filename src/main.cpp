@@ -81,6 +81,12 @@ int main( int argc, char* args[] )
 		bool quit = false;
 		//Event handler
 		SDL_Event e;
+		int playerX = 160;
+		int playerY = 160;
+		int playerS = 5;
+		int offset = 2;
+		int liX = playerX+10;
+		int liY = playerY + offset;
 		//While application is running: main game loop.
 		while( !quit )
 		{
@@ -113,7 +119,12 @@ int main( int argc, char* args[] )
 			SDL_SetRenderDrawColor( gRenderer, 0x33, 0x33, 0x33, 0xFF );
 			SDL_RenderClear( gRenderer );
 
+			//drawMap on the screen
 			renderMap(map, COLUMN_NUM, ROW_NUM, BLOCK_SIZE, gRenderer);
+
+			//draw player on the map
+			renderPlayer(playerX, playerY, playerS, offset, liX, liY, gRenderer );
+
 			//Update screen
 			SDL_RenderPresent( gRenderer );
 			
