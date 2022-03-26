@@ -2,6 +2,7 @@
 
 // header file containing all other libraries and constants.
 #include "resources.h"
+#include "constants.h"
 
 
 bool init()
@@ -81,12 +82,9 @@ int main( int argc, char* args[] )
 		bool quit = false;
 		//Event handler
 		SDL_Event e;
-		int playerX = 160;
-		int playerY = 160;
-		int playerS = 5;
-		int offset = 2;
-		int liX = playerX+10;
-		int liY = playerY + offset;
+		float playerX = 160;
+		float playerY = 160;
+		float playerA = 0.0;
 		//While application is running: main game loop.
 		while( !quit )
 		{
@@ -97,9 +95,7 @@ int main( int argc, char* args[] )
 				if( e.type == SDL_QUIT ){quit = true;}
 				else if( e.type == SDL_KEYDOWN )
 				{
-					movePlayer(e, &playerX, &playerY);
-					liX = playerX+10;
-					liY = playerY + offset;
+					movePlayer(e, &playerX, &playerY, &playerA);
 				}
 			}
 			//Clear screen
@@ -110,7 +106,7 @@ int main( int argc, char* args[] )
 			renderMap(map, COLUMN_NUM, ROW_NUM, BLOCK_SIZE, gRenderer);
 
 			//draw player on the map
-			renderPlayer(playerX, playerY, playerS, offset, liX, liY, gRenderer );
+			renderPlayer(playerX, playerY, playerA, gRenderer );
 
 			//Update screen
 			SDL_RenderPresent( gRenderer );
